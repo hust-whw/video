@@ -12,7 +12,8 @@ class Login extends CI_Controller {
         // 默认方法
         function index() 
         {
-                echo "login";
+                $a = $this->input->get('a'); 
+                echo $a;
         }  
 }
 

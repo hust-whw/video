@@ -14,7 +14,7 @@ class Register extends CI_Controller {
 	}
 	
 	// 默认方法
-	function regist() 
+	function index() 
 	{
 		$nickname = $this->input->post('nickname'); 				    //昵称
 		
