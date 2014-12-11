@@ -8,7 +8,7 @@ class Register extends CI_Controller {
 		// 加载计算模型
 		$this->load->model('verification');
 
-		$this->load->model('function_time');
+		$this->load->model('function_');
 
 		$this->load->model('database_grud');
 	}
@@ -34,13 +34,13 @@ class Register extends CI_Controller {
 
 		$i = $this->input->post('i');								//流水号
 
-		$sever_time = $this->function_time->get_timestamp();
+		$server_time = $this->function_->get_timestamp();
 
 		$result_verify = $this->verification->verify_regist($nickname, $constellation, $sex, $account, $password, $avatar_url);
 		
 		if($result_verify === 0)
 		{
-			$e =$this->database_grud->regist($nickname, $constellation, $sex, $account, $password, $avatar_url,$encrypted_password,$sever_time);
+			$e =$this->database_grud->regist($nickname, $constellation, $sex, $account, $password, $avatar_url,$encrypted_password,$server_time);
 		}
 		else
 		{
