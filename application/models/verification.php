@@ -54,12 +54,25 @@ class Verification extends CI_Model {
                 {
                     return false;
                 }
-
             }
             else
             {
                 return false;
             }  
+        }
 
+        //验证该id用户会话字符串的正确性
+        function verify_session($session_str)
+        {
+            $user_id = substr($session_str,0,strlen($session_str)-32);
+
+            $query = $this->db->query("SELECT session_str FROM user WHERE id = '$user_id' ");
+
+            if($query->num_rows() == 1)
+            {
+                return 0;
+            }
+            else
+                return 2;
         }
 }

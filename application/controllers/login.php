@@ -17,15 +17,15 @@ class Login extends CI_Controller {
         function index() 
         {
             //用户账号
-            $account = $this->input->get('account');
+            $account = $this->input->post('account');
             //加密密码32位md5
-            $encrypted_password = $this->input->get('encrypted_password');
+            $encrypted_password = $this->input->post('encrypted_password');
             //客户端6为随机字符串
-            $client_str = $this->input->get('client_str'); 
+            $client_str = $this->input->post('client_str'); 
             //客户端输入时间戳
-            $timestamp = $this->input->get('t');                                           
+            $timestamp = $this->input->post('t');                                           
             //流水号
-            $i = $this->input->get('i');  
+            $i = $this->input->post('i');  
             //服务端目前时间戳
             $server_time = $this->function_->get_timestamp();
 

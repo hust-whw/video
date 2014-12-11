@@ -37,7 +37,7 @@ class Database_grud extends CI_Model {
 
         	$finger = md5($account.$encrypted_password.$client_str.$server_str);
 
-        	$session_str=$user_id.$finger;
+        	$session_str = $user_id.$finger;
 
         	@$this->db->query("UPDATE user SET session_str = '$session_str' , last_time = '$server_time' WHERE id = '$user_id'");
 
@@ -45,6 +45,23 @@ class Database_grud extends CI_Model {
             	return $session_str;
             else
             	return 2;
+        }
+        //获取指定id的指定信息
+        function user($to_id,$json_array)
+        {
+            
+            $query = @$this->db->query("SELECT * From user WHERE id = '$to_id'");
+
+            $result = $query->row_array();
+
+            $result_array = array();
+
+            foreach ($json_array as $key => $value) 
+            {
+                $result_array[$value] = $result[$value];
+            }
+
+            return $result_array;
         }
 }
 ?>
