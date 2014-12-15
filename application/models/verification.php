@@ -66,7 +66,7 @@ class Verification extends CI_Model {
         {
             $user_id = substr($session_str,0,strlen($session_str)-32);
 
-            $query = $this->db->query("SELECT session_str FROM user WHERE id = '$user_id' ");
+            $query = $this->db->query("SELECT session_str FROM user WHERE id = '$user_id' AND session_str = '$session_str'");
 
             if($query->num_rows() == 1)
             {

@@ -24,5 +24,12 @@ class Function_ extends CI_Model {
 			return $password;  
 
         }
+
+        function get_self_id($session_str)
+        {
+                $user_id = substr($session_str,0,strlen($session_str)-32);
+
+                return $user_id;
+        }
 }
 ?>

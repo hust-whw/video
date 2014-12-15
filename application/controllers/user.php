@@ -43,6 +43,8 @@ class User extends CI_Controller {
 			else
 			{
 				$e = 2;
+
+                $data_array = null;
 			}
 
 			$data_array['e'] = $e;
