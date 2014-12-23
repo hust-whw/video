@@ -49,9 +49,9 @@ class Register extends CI_Controller {
 
 		
 		$result = array(
-						'i' => $i, 
-						'e' => $e
-						);
+			'i' => $i, 
+			'e' => $e
+			);
 		$json = json_encode($result);
 		echo $json;
 	}
