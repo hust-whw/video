@@ -472,5 +472,22 @@ class Database_grud extends CI_Model {
 
 		return $result_array;
 	}
+
+
+	//获取视频流ID
+	function video_flow($start,$limit)
+	{
+		$data_array = array();
+
+		$query = @$this->db->query("SELECT id From video LIMIT $start,$limit");
+		
+		foreach ($query->result_array() as $row)
+		{
+			array_push($data_array, (int)$row['id']);
+		}
+
+		return $data_array;
+	}
+
 }
 ?>
